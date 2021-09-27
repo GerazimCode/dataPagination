@@ -59,6 +59,7 @@ function addPagination(list){
    let linkList = document.querySelector(".link-list");
    linkList.innerHTML = "";
 
+   // iterate through the number of pages and add buttons
    for(let i=1; i<=numOfPages; i++){
       let button =`
        <li>
