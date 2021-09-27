@@ -45,10 +45,8 @@ function showPage(list, page){
          studentList.insertAdjacentHTML('beforeend', studentItems);
       }
    }
-
    
 }
-
 /*
 Create the `addPagination` function
 This function will create and insert/append the elements needed for the pagination buttons
@@ -70,15 +68,18 @@ function addPagination(list){
       linkList.insertAdjacentHTML("beforeend", button);
    }
 
-   let firstButton = linkList.querySelector(":first-child");
+   // selecting the first button and making it active by assigning it to the active class
+   let firstButton = linkList.querySelector("button");
    firstButton.className = "active";
 
-   // an even that will when there is a click on the buttons
+   // an event listener that will when there is a click on the buttons
    linkList.addEventListener("click", (e) => {
       if(e.target.tagName === "BUTTON"){
          let activeElement = document.querySelector(".active");
          activeElement.className = "";
          e.target.className = "active";
+
+         // stores the page number to be called in the showPage function call.
          let currentPage = e.target.textContent;
 
          showPage(list, currentPage);
@@ -87,8 +88,6 @@ function addPagination(list){
 
 }
 
-addPagination(data);
-
-
-
 // Call functions
+showPage(data, 1);
+addPagination(data);
